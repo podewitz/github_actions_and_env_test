@@ -1,0 +1,25 @@
+name: Simulate a deployment to an environment
+
+on:
+    workflow_dispatch:
+        inputs:
+            target-env:
+                required: true
+                type: string
+
+jobs:
+    simulate-deployment:
+        runs-on: ubuntu-latest
+        environment:
+            name: ${{ inputs.target-env }}
+
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v2
+            with:
+                # Take jobs and deploy script from dev branch
+                ref: dev
+          - name: Simulate deployment
+            run: |
+                echo "Environment: ${{ inputs.target-env }}"
+                echo "Parameters: ..."
