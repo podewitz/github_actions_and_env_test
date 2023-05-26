@@ -12,6 +12,7 @@ on:
                     - development
                     - test
                     - production
+                    - staging
 
 jobs:
     simulate-deployment:
@@ -21,7 +22,7 @@ jobs:
 
         steps:
           - name: Checkout repo
-            uses: actions/checkout@v2
+            uses: actions/checkout@v3
             with:
                 # Take jobs and deploy script from dev branch
                 ref: ${{vars.BRANCH_TO_DEPLOY}}
