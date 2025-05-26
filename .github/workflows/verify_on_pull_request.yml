@@ -18,6 +18,11 @@ jobs:
       - name: Simulate Check
         run: |
           echo "This is a simulation of a check on a pull request that fails."
-          git diff --name-only origin/main
+          echo "pwd:"
+          pwd
+          echo "ls -la:"
+          ls -la
+          echo "Starting git diff"
+          git diff --name-only origin/main..$(git branch --show-current)
           echo "Exiting now with an error..."
           exit 1
