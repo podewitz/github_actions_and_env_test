@@ -1,0 +1,19 @@
+name: Simulate a check on a pull request
+
+on:
+  pull_request:
+    #types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+jobs:
+  simulate-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Simulate Check
+        run: |
+          echo "This is a simulation of a check on a pull request that fails."
+          exit 1
