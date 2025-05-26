@@ -16,4 +16,6 @@ jobs:
       - name: Simulate Check
         run: |
           echo "This is a simulation of a check on a pull request that fails."
+          git diff --name-only main
+          echo "Exiting now with an error..."
           exit 1
