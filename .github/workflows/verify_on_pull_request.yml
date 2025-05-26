@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # We need th get the full history to compare against main
       - name: Simulate Check
         run: |
           echo "This is a simulation of a check on a pull request that fails."
