@@ -40,11 +40,15 @@ pull_number = int(os.getenv("GITHUB_PULL_NUMBER"))
 print(f"Using pull number: {pull_number=}")
 pull_request = repo.get_pull(number=pull_number)
 
+last_commit = repo.get_commit(pull_request.head.sha)
+print(f"{type(last_commit)=}")
+print(f"{last_commit=}")
+
 for file, users in tables_to_check.items():
     print(f"File: {file}, Users: {users}")
     pull_request.create_review_comment(
         body=f"This is a test for {file} with {users}",
-        commit=pull_request.head.sha,
+        commit=last_commit,
         path=file,
         subject_type="file",
     )
