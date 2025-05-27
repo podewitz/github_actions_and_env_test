@@ -51,6 +51,7 @@ last_commit = repo.get_commit(pull_request.head.sha)
 print(f"{type(last_commit)=}")
 print(f"{last_commit=}")
 
+# TODO: We need a separate token for the bot to comment on PRs
 for file, users in tables_to_check.items():
     print(f"File: {file}, Users: {users}")
     pull_request.create_review_comment(
