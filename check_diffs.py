@@ -36,7 +36,7 @@ full_repo_name = os.getenv("GITHUB_REPO")
 print(f"Using repo: {full_repo_name=}")
 repo = g.get_repo(full_repo_name)
 
-pull_number = int(os.getenv("GITHUB_PULL_NUMBER"))
+pull_number = int(os.getenv("GITHUB_PR_NUMBER"))
 print(f"Using pull number: {pull_number=}")
 pull_request = repo.get_pull(number=pull_number)
 
