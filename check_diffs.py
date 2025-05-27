@@ -10,6 +10,10 @@ changed_files = [diff.a_path for diff in repo.head.commit.diff(None)]
 # for diff in repo.head.commit.diff(None):
 #     print(diff.a_path)
 
+print(f"__DEBUG0: {[diff.a_path for diff in repo.head.commit.diff(None)]}")
+print(f"__DEBUG1: {[diff.a_path for diff in repo.head.commit.diff("main")]}")
+print(f"__DEBUG2: {[diff.a_path for diff in repo.head.commit.diff("origin/main")]}")
+
 tables_to_check = {}
 for changed_file in changed_files:
     print(f"Changed file: {changed_file}")
