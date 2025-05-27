@@ -4,15 +4,18 @@ from git import Repo
 from github import Auth, Github
 
 
-repo = Repo(".")
+# repo = Repo(".")
 
-changed_files = [diff.a_path for diff in repo.head.commit.diff(None)]
-# for diff in repo.head.commit.diff(None):
-#     print(diff.a_path)
+# changed_files = [diff.a_path for diff in repo.head.commit.diff(None)]
+# # for diff in repo.head.commit.diff(None):
+# #     print(diff.a_path)
 
-print(f"__DEBUG0: {[diff.a_path for diff in repo.head.commit.diff(None)]}")
-print(f"__DEBUG1: {[diff.a_path for diff in repo.head.commit.diff("main")]}")
-print(f"__DEBUG2: {[diff.a_path for diff in repo.head.commit.diff("origin/main")]}")
+# print(f"__DEBUG0: {[diff.a_path for diff in repo.head.commit.diff(None)]}")
+# print(f"__DEBUG1: {[diff.a_path for diff in repo.head.commit.diff("main")]}")
+# print(f"__DEBUG2: {[diff.a_path for diff in repo.head.commit.diff("origin/main")]}")
+
+with open("__diffs.txt", "r") as f:
+    changed_files = [line.strip() for line in f.readlines() if line.strip()]
 
 tables_to_check = {}
 for changed_file in changed_files:
